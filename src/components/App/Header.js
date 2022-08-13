@@ -1,12 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import './CSS/Header.css'
 
-function Header({usernames, setUserNames, selectedUser, setSelectedUser}) {
-
-    // useEffect(() => {
-    //     setSelectedUser(usernames.user_name)
-    //     console.log(selectedUser)
-    // }, [setUserNames]);
+function Header({usernames, selectedUser, setSelectedUser}) {
     
   return (
     <div className='header'>

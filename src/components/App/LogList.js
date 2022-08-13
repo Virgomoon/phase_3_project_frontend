@@ -1,12 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Post from './Post';
 import './CSS/LogList.css'
 
-function LogList({logs, onDeleteLog, currentUser}) {
-
-    console.log(currentUser)
-    logs.map((log)=> {console.log(log.entry)})
-    // console.log(logs)
+function LogList({logs, onDeleteLog, onUpdateLog}) {
 
   return (
     
@@ -18,7 +14,9 @@ function LogList({logs, onDeleteLog, currentUser}) {
                         id={log.id}
                         entry={log.entry}
                         time={log.created_at}
+                        updatedAt={log.updated_at}
                         onDeleteLog={onDeleteLog}
+                        onUpdateLog={onUpdateLog}
                         />
                  )}
                  )}

@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 // import { Button } from "semantic-ui-react";
 import "./CSS/TextForm.css";
 
-function TextForm({logs, currentUser, onAddLog}) {
+function TextForm({currentUser, onAddLog}) {
 
-    console.log(currentUser)
     const [journalEntry, setJournalEntry] = useState("")
 
     function handleJournalEntryChange(e) {
@@ -41,6 +40,7 @@ function TextForm({logs, currentUser, onAddLog}) {
 
   return (
     <div className='text-form'>
+        
         <form className="form" onSubmit={handleJournalEntrySubmit} >
                 <label className='form-el'>
                     Write A Journal Entry
@@ -49,7 +49,6 @@ function TextForm({logs, currentUser, onAddLog}) {
                 className='form-el'
                 type="text"
                 name="create-entry"
-                // user={currentUser}
                 value={journalEntry}
                 onChange={handleJournalEntryChange}
                 />

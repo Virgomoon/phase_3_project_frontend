@@ -24,20 +24,23 @@ function App() {
           .then((users) => setUserNames(users));
       }, []);
 
-  console.log(usernames)
-      console.log(selectedUser)
-  console.log(logs)
-
   const currentUser = usernames.find((user) => user.user_name === selectedUser)
-
-  console.log(currentUser)
 
   const filteredLogs = logs.filter((log) => currentUser.id ===  log.user_id);
 
-  console.log(filteredLogs)
-
   function handleAddLog(newLog) {
     setLogs([...logs, newLog]);
+  }
+
+  function handleUpdateLog(updatedLogObj) {
+    const updatedLogs = logs.map((log) => {
+      if (log.id === updatedLogObj.id) {
+        return updatedLogObj;
+      } else {
+        return log;
+      }
+    });
+    setLogs(updatedLogs);
   }
 
   function handleDeleteLog(id) {
@@ -49,19 +52,17 @@ function App() {
     <div>
       <Header 
       usernames={usernames} 
-      setUserNames={setUserNames}
       selectedUser={selectedUser}
       setSelectedUser={setSelectedUser}
       />
       <TextForm 
-        logs={logs} 
         currentUser={currentUser}
         onAddLog={handleAddLog}
         />
       <LogList 
         logs={filteredLogs} 
-        currentUser={currentUser}
         onDeleteLog={handleDeleteLog}
+        onUpdateLog={handleUpdateLog}
       />
     </div>
   );
