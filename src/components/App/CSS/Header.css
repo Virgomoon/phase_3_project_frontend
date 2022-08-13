@@ -12,9 +12,9 @@
     justify-content: right;
 }
 
-.title {
+/* .title {
     
-}
+} */
 
 .select-container {
     flex-grow: 1;
@@ -22,5 +22,5 @@
     margin: 5px;
 }
 
-select {
-}
+/* select {
+} */

@@ -17,7 +17,7 @@ function TextForm({logs}) {
        
         let newEntry = ({
             user_id: logs.id,
-            content: journalEntry,
+            entry: journalEntry,
         })
 
         fetch("http://localhost:9292/logs", {

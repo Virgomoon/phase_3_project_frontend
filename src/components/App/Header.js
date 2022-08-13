@@ -1,7 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import './CSS/Header.css'
 
-function Header({usernames, setUserNames}) {
+function Header({usernames, setUserNames, selectedUser, setSelectedUser}) {
+
+    // useEffect(() => {
+    //     setSelectedUser(usernames.user_name)
+    //     console.log(selectedUser)
+    // }, [setUserNames]);
     
   return (
     <div className='header'>
@@ -10,7 +15,7 @@ function Header({usernames, setUserNames}) {
         </div>
         <div className='select-container'>
             <label>Select User</label>
-            <select name="category" value={usernames} onChange={(e) => setUserNames(e.target.value)}>
+            <select name="category" value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}>
                 {usernames.map((user) => (
                     <option key={user.id} value={user.user_name}>{user.user_name}</option>
                     ))}
