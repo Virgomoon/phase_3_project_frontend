@@ -3,6 +3,7 @@ import './App.css';
 import LogList from "./LogList";
 import TextForm from './TextForm';
 import Header from './Header';
+import CreateUser from './CreateUser';
 
 function App() {
 
@@ -32,6 +33,10 @@ function App() {
     setLogs([...logs, newLog]);
   }
 
+  function handleAddUser(newName) {
+    setUserNames([...usernames, newName]);
+  }
+
   function handleUpdateLog(updatedLogObj) {
     const updatedLogs = logs.map((log) => {
       if (log.id === updatedLogObj.id) {
@@ -55,6 +60,7 @@ function App() {
       selectedUser={selectedUser}
       setSelectedUser={setSelectedUser}
       />
+      <CreateUser onAddUser={handleAddUser} />
       <TextForm 
         currentUser={currentUser}
         onAddLog={handleAddLog}
