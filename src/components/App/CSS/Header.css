@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    flex-grow: 3;
+    align-items: center;
+    /* flex-direction: column; */
+    font-size: xx-large;
+    margin: 10px;
+}
+
+.title-container {
+    flex-grow: 2;
+    justify-content: right;
+}
+
+.title {
+    
+}
+
+.select-container {
+    flex-grow: 1;
+    font-size: large;
+    margin: 5px;
+}
+
+select {
+}

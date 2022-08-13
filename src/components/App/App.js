@@ -1,23 +1,45 @@
-import logo from '../../logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import LogList from "./LogList";
+import TextForm from './TextForm';
+import Header from './Header';
 
 function App() {
+
+  const [logs, setLogs] = useState([]);
+  const [usernames, setUserNames] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:9292/logs")
+      .then((r) => r.json())
+      // .then((logs) => console.log(logs));
+      .then((logData) => setLogs(logData));
+  }, []);
+
+    useEffect(() => {
+        fetch("http://localhost:9292/users")
+          .then((r) => r.json())
+        //   .then((users) => console.log(users));
+          .then((users) => setUserNames(users));
+      }, []);
+
+  console.log(usernames)
+
+  console.log(logs)
+
+  function handleDeleteLog(id) {
+    const updatedLogs = logs.filter((log) => log.id !== id);
+    setLogs(updatedLogs);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header usernames={usernames} setUserNames={setUserNames} />
+      <TextForm logs={logs}/>
+      <LogList 
+        logs={logs} 
+        onDeleteLog={handleDeleteLog}
+      />
     </div>
   );
 }

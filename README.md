@@ -1,3 +1,9 @@
+# Journal App Phase 3 Project
+
+frontend repo found [here](https://github.com/Virgomoon/phase_3_project_frontend)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
