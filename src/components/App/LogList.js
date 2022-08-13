@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import Post from './Post';
 import './CSS/LogList.css'
 
-function LogList({logs, onDeleteLog}) {
+function LogList({logs, onDeleteLog, currentUser}) {
 
+    console.log(currentUser)
     logs.map((log)=> {console.log(log.entry)})
     // console.log(logs)
 

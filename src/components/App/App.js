@@ -36,6 +36,10 @@ function App() {
 
   console.log(filteredLogs)
 
+  function handleAddLog(newLog) {
+    setLogs([...logs, newLog]);
+  }
+
   function handleDeleteLog(id) {
     const updatedLogs = filteredLogs.filter((log) => log.id !== id);
     setLogs(updatedLogs);
@@ -49,9 +53,14 @@ function App() {
       selectedUser={selectedUser}
       setSelectedUser={setSelectedUser}
       />
-      <TextForm logs={logs}/>
+      <TextForm 
+        logs={logs} 
+        currentUser={currentUser}
+        onAddLog={handleAddLog}
+        />
       <LogList 
         logs={filteredLogs} 
+        currentUser={currentUser}
         onDeleteLog={handleDeleteLog}
       />
     </div>

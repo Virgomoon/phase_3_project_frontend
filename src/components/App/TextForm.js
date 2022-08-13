@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 // import { Button } from "semantic-ui-react";
 import "./CSS/TextForm.css";
 
-function TextForm({logs}) {
+function TextForm({logs, currentUser, onAddLog}) {
 
+    console.log(currentUser)
     const [journalEntry, setJournalEntry] = useState("")
 
     function handleJournalEntryChange(e) {
@@ -16,7 +17,7 @@ function TextForm({logs}) {
         e.preventDefault();
        
         let newEntry = ({
-            user_id: logs.id,
+            user_id: currentUser.id,
             entry: journalEntry,
         })
 
@@ -28,10 +29,12 @@ function TextForm({logs}) {
             body: JSON.stringify(newEntry),
             })
         .then((res)=> res.json())
-        .then((newRev)=> console.log(newRev))
+        .then((newLog)=> {
+            onAddLog(newLog)
+            setJournalEntry("")
+        })
     
 
-        setJournalEntry("")
     }
         
 
