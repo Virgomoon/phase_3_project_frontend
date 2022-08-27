@@ -49,7 +49,7 @@ function App() {
   }
 
   function handleDeleteLog(id) {
-    const updatedLogs = filteredLogs.filter((log) => log.id !== id);
+    const updatedLogs = logs.filter((log) => log.id !== id);
     setLogs(updatedLogs);
   }
 

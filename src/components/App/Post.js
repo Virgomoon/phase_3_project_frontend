@@ -11,11 +11,12 @@ function Post({entry, time, updatedAt, id, onDeleteLog, onUpdateLog}) {
 
 
     function handleDeleteClick() {
-        fetch(`http://localhost:9292/logs/${id}`, {
-          method: "DELETE",
-        });
-    
-        onDeleteLog(id);
+      
+      fetch(`http://localhost:9292/logs/${id}`, {
+        method: "DELETE",
+      })
+      
+      onDeleteLog(id);
       }
 
   return (
