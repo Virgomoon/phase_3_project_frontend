@@ -1,6 +1,6 @@
 # Journal App Phase 3 Project
 
-frontend repo found [here](https://github.com/Virgomoon/phase_3_project_frontend)
+Backend repo found [here](https://github.com/Virgomoon/phase-3-sinatra-react-project-backend)
 
 
 
